@@ -10,15 +10,14 @@ import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
 
-import com.github.mauricioaniche.ck.CK;
-import com.github.mauricioaniche.ck.CKNotifier;
-import com.github.mauricioaniche.ck.MetricsExecutor;
-import com.github.mauricioaniche.ck.util.FileUtils;
-import com.github.mauricioaniche.ck.util.MetricsFinder;
+
+
 import com.google.common.collect.Lists;
 
 import metric.ClassLevelMetric;
 import metric.MethodLevelMetric;
+import util.FileUtils;
+import util.MetricsFinder;
 
 public class CK {
 private static final int MAX_AT_ONCE;

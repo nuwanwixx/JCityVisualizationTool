@@ -6,8 +6,10 @@ import java.util.Set;
 
 import org.reflections.Reflections;
 
-import com.github.mauricioaniche.ck.metric.ClassLevelMetric;
-import com.github.mauricioaniche.ck.metric.MethodLevelMetric;
+import metric.ClassLevelMetric;
+import metric.MethodLevelMetric;
+
+
 
 public class MetricsFinder {
 
