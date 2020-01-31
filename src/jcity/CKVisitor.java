@@ -1,6 +1,6 @@
 package jcity;
 
-import util.LOCCalculator;
+import static util.LOCCalculator.calculate;
 
 import java.util.HashSet;
 import java.util.List;
@@ -103,10 +103,6 @@ import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 import org.eclipse.jdt.core.dom.VariableDeclarationStatement;
 import org.eclipse.jdt.core.dom.WhileStatement;
 import org.eclipse.jdt.core.dom.WildcardType;
-
-
-import com.github.mauricioaniche.ck.CKVisitor.ClassInTheStack;
-import com.github.mauricioaniche.ck.CKVisitor.MethodInTheStack;
 
 
 import metric.ClassLevelMetric;

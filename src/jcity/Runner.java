@@ -8,7 +8,7 @@ import util.ResultWriter;
 
 public class Runner {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		String path = "D:\\TestCK\\src";
 		boolean useJars = false;
 		if(args.length == 2)
@@ -28,7 +28,7 @@ public class Runner {
 			    int methods = result.getNumberOfMethods();
 			    int variables = result.getVariablesQty();
 			    
-			    CKList ckList = new CKList(file, className, loc, methods, variables);
+			    JCity ckList = new JCity(file, className, loc, methods, variables);
 			    newList.put(file, ckList);
 			    System.out.println(ckList.toString());
  
