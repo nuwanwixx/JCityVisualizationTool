@@ -9,7 +9,7 @@ import util.ResultWriter;
 public class Runner {
 
 	public static void main(String[] args) throws IOException {
-		String path = "D:\\TestCK\\src";
+		String path = "D:\\Academic\\IT mora\\Eclipse Progams\\DependencyTestOne";
 		boolean useJars = false;
 		if(args.length == 2)
 			useJars = Boolean.parseBoolean(args[1]);
@@ -21,16 +21,16 @@ public class Runner {
 	
 		new CK().calculate(path, useJars, result -> {
 			try {
-			    writer.printResultNuwan(result);
+			    writer.printResult(result);
 			    String file = result.getFile();
 			    String className = result.getClassName();
 			    int loc = result.getLoc();
 			    int methods = result.getNumberOfMethods();
 			    int variables = result.getVariablesQty();
 			    
-			    JCity ckList = new JCity(file, className, loc, methods, variables);
-			    newList.put(file, ckList);
-			    System.out.println(ckList.toString());
+			    JCity jList = new JCity(file, className, methods, loc, variables);
+			    newList.put(file, jList);
+			    System.out.println(jList.toString());
  
 			    
 			   

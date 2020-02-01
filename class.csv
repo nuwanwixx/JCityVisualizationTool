@@ -1,0 +1,7 @@
+file,class,totalMethods,loc,varaiblesQty
+D:\Academic\IT mora\Eclipse Progams\DependencyTestOne\src\dep\lists\ListsClass.java,dep.lists.ListsClass,0,4,0
+D:\Academic\IT mora\Eclipse Progams\DependencyTestOne\src\dep\main\MainClass.java,dep.main.MainClass,0,12,0
+D:\Academic\IT mora\Eclipse Progams\DependencyTestOne\src\dep\main\SubClass.java,dep.main.SubClass,0,18,0
+D:\Academic\IT mora\Eclipse Progams\DependencyTestOne\src\dep\main\SumClass.java,dep.main.SumClass,0,21,0
+D:\Academic\IT mora\Eclipse Progams\DependencyTestOne\src\dependency\ExtendClass.java,dependency.ExtendClass,0,9,0
+D:\Academic\IT mora\Eclipse Progams\DependencyTestOne\src\dependency\ImplementClass.java,dependency.ImplementClass,0,3,0

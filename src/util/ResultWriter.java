@@ -2,6 +2,7 @@ package util;
 
 import java.io.FileWriter;
 
+
 import java.io.IOException;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
@@ -22,7 +23,7 @@ public class ResultWriter {
     }
     
      
-    public void printResultNuwan(JClassResult result) throws IOException{
+    public void printResult(JClassResult result) throws IOException{
     	this.classPrinter.printRecord(result.getFile(), result.getClassName(), result.getNumberOfMethods(), result.getLoc(), result.getVariablesQty());
 
     }
