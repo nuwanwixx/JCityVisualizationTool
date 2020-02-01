@@ -61,5 +61,14 @@ public class JCity {
         return "CKList [filePath=" + filePath + ", className=" + className + ", methods=" + numberOfMethods + ", linesOfCodes=" + linesOfCodes + ", attributes=" + numberOfAttributes
                 + "]";
     }
-	
+    
 }
+
+
+
+		
+    
+
+
+
+	

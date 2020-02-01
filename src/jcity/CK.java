@@ -1,26 +1,25 @@
 package jcity;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.Callable;
+import com.github.mauricioaniche.ck.metric.ClassLevelMetric;
+import com.github.mauricioaniche.ck.metric.MethodLevelMetric;
+import com.google.common.collect.Lists;
+
+import jcity.util.FileUtils;
+import jcity.util.MetricsFinder;
 
 import org.apache.log4j.Logger;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
 
-
-
-import com.google.common.collect.Lists;
-
-import metric.ClassLevelMetric;
-import metric.MethodLevelMetric;
-import util.FileUtils;
-import util.MetricsFinder;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.Callable;
 
 public class CK {
-private static final int MAX_AT_ONCE;
+
+	private static final int MAX_AT_ONCE;
 	
 	static {
 		String jdtMax = System.getProperty("jdt.max");
@@ -89,4 +88,5 @@ private static final int MAX_AT_ONCE;
 		
 		log.info("Finished parsing");
     }
+
 }

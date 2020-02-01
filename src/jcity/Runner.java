@@ -1,14 +1,20 @@
 package jcity;
 
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.Reader;
 import java.util.HashMap;
-import util.ResultWriter;
 
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVRecord;
 
+import jcity.util.ResultWriter;
 
 public class Runner {
 
 	public static void main(String[] args) throws IOException {
+
+
 		String path = "D:\\Academic\\IT mora\\Eclipse Progams\\DependencyTestOne";
 		boolean useJars = false;
 		if(args.length == 2)
@@ -21,16 +27,16 @@ public class Runner {
 	
 		new CK().calculate(path, useJars, result -> {
 			try {
-			    writer.printResult(result);
+			    writer.printResultNuwan(result);
 			    String file = result.getFile();
 			    String className = result.getClassName();
 			    int loc = result.getLoc();
 			    int methods = result.getNumberOfMethods();
 			    int variables = result.getVariablesQty();
 			    
-			    JCity jList = new JCity(file, className, methods, loc, variables);
-			    newList.put(file, jList);
-			    System.out.println(jList.toString());
+			    JCity ckList = new JCity(file, className, methods, loc, variables);
+			    newList.put(file, ckList);
+			    System.out.println(ckList.toString());
  
 			    
 			   
@@ -42,7 +48,5 @@ public class Runner {
 		System.out.println(newList);
 		
 		writer.flushAndClose();
-
 	}
-
 }

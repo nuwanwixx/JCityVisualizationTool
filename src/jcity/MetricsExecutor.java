@@ -1,18 +1,17 @@
 package jcity;
 
-import java.util.List;
-import java.util.Set;
-import java.util.concurrent.Callable;
-
+import com.github.mauricioaniche.ck.metric.ClassLevelMetric;
+import com.github.mauricioaniche.ck.metric.MethodLevelMetric;
 import org.apache.log4j.Logger;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.FileASTRequestor;
 
-import metric.ClassLevelMetric;
-import metric.MethodLevelMetric;
-
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.Callable;
 
 public class MetricsExecutor extends FileASTRequestor {
+
 	private Callable<List<ClassLevelMetric>> classLevelMetrics;
 	private Callable<List<MethodLevelMetric>> methodLevelMetrics;
 	private CKNotifier notifier;
@@ -44,4 +43,5 @@ public class MetricsExecutor extends FileASTRequestor {
 			log.error("error in " + sourceFilePath, e);
 		}
 	}
+	
 }

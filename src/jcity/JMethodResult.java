@@ -37,7 +37,12 @@ public class JMethodResult {
 		this.modifiers = modifiers;
 	}
 
-	
+	/**
+	 * public/static/private and other org.eclipse.jdt.core.dom.Modifier modifiers
+	 * 
+	 * @see org.eclipse.jdt.core.dom.Modifier to decode int
+	 * @return
+	 */
 	public int getModifiers() {
 		return modifiers;
 	}
