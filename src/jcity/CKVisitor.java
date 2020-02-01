@@ -1,6 +1,7 @@
 package jcity;
 
 import com.github.mauricioaniche.ck.metric.ClassLevelMetric;
+
 import com.github.mauricioaniche.ck.metric.MethodLevelMetric;
 
 import jcity.util.JDTUtils;
