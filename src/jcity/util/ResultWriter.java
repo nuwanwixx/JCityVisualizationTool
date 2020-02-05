@@ -1,16 +1,12 @@
 package jcity.util;
 
 import org.apache.commons.csv.CSVFormat;
+
 import org.apache.commons.csv.CSVPrinter;
 
 import jcity.JClassResult;
-import jcity.JMethodResult;
-
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class ResultWriter {
 
@@ -25,7 +21,7 @@ public class ResultWriter {
     }
    
 
-    public void printResultNuwan(JClassResult result) throws IOException{
+    public void printResult(JClassResult result) throws IOException{
     	this.classPrinter.printRecord(result.getFile(), result.getClassName(), result.getNumberOfMethods(), result.getLoc(), result.getVariablesQty());
 
     }

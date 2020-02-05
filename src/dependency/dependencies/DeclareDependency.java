@@ -4,6 +4,7 @@ import dependency.enums.DependencyType;
 
 import dependency.util.DCLUtil;
 
+@SuppressWarnings("serial")
 public class DeclareDependency extends HandleDependency {
 
 	public DeclareDependency(String classNameA, String classNameB, Integer lineNumberA, Integer offset, Integer length) {

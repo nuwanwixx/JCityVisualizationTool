@@ -7,8 +7,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
-
 import org.eclipse.core.runtime.CoreException;
 
 import com.google.common.collect.ArrayListMultimap;
@@ -17,7 +15,6 @@ import com.google.common.collect.Multimap;
 
 import dependency.core.Architecture;
 import dependency.exception.DCLException;
-import dependency.util.TxtFileWriter;
 
 public class Main {
 	
@@ -78,20 +75,7 @@ public class Main {
 		
 		return extendlist; 
 	}
-	
-//	public HashMap<String,String> getImplementedlist(Collection<String> depList){
-//		HashMap<String,String> implementlist = new HashMap<String,String>();
-//		for (String string : depList) {
-//			if (string.contains(",implement,")) {
-//				String[] parts = string.split(",implement,");
-//				String part1 = parts[0]; 
-//				String part2 = parts[1];
-//				implementlist.put(part1, part2);
-//			}
-//		}
-//		
-//		return implementlist; 
-//	}
+
 	
 	public Multimap<String,String> getImplementedlist(Collection<String> depList){
 		Multimap<String, String> implementlist = ArrayListMultimap.create();
@@ -107,42 +91,4 @@ public class Main {
 		return implementlist; 
 	}
 	 
-
-
-//	public static void main(String[] args) throws CoreException, IOException, DCLException, InterruptedException {
-//		String root = "D:\\Academic\\IT mora\\Eclipse Progams\\DepExtTestAA";
-//		
-//		File filePath = new File("").getAbsoluteFile();
-//		String path = filePath.getAbsolutePath();
-//		String projectPath = "";
-//		
-//		File f = new File(root);
-//		
-//		if(!f.exists()){
-//			File f2 = new File(path+"/"+root);
-//			if(!f2.exists()){
-//				File f3 = new File(path);
-//				if(!f3.exists()){
-//					System.out.println("Wrong Specified Path!");
-//				}else{
-//					projectPath = path;
-//				}
-//			}else{
-//				projectPath = path+"/"+root;
-//			}
-//		}else{
-//			projectPath = root;
-//		}
-//		
-//		if(!projectPath.equals("")){
-//			Architecture architecture = new Architecture(projectPath);
-//			Collection<String> listDep = architecture.getDependencies();
-//			for (String string : listDep) {
-//				System.out.println(string);
-//			}
-//			
-////			TxtFileWriter.writeTxtFile(architecture.getDependencies(), projectPath);
-//		}
-//		
-//	}
 }

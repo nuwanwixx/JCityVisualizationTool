@@ -4,6 +4,7 @@ import dependency.enums.DependencyType;
 
 import dependency.util.DCLUtil;
 
+@SuppressWarnings("serial")
 public class AnnotateDependency extends Dependency {
 	
 	public AnnotateDependency(String classNameA, String classNameB, Integer lineNumberA, Integer offset, Integer length) {

@@ -4,6 +4,7 @@ import dependency.enums.DependencyType;
 
 import dependency.util.DCLUtil;
 
+@SuppressWarnings("serial")
 public class CreateDependency extends Dependency {
 	public CreateDependency(String classNameA, String classNameB, Integer lineNumberA, Integer offset, Integer length) {
 		super(classNameA, classNameB, lineNumberA, offset, length);

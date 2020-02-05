@@ -1,16 +1,11 @@
 package jcity;
 
-import java.io.FileReader;
-
 import java.io.IOException;
-import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVRecord;
 import org.eclipse.core.runtime.CoreException;
 
 import com.google.common.collect.Multimap;
@@ -21,7 +16,7 @@ import jcity.util.ResultWriter;
 
 public class Runner {
 
-	public static void main(String[] args) throws IOException, CoreException, DCLException, InterruptedException {
+	public static void main(String[] args) throws IOException, CoreException, DCLException, InterruptedException { 
 
 
 		String path = "D:\\Academic\\IT mora\\Course Modules\\4th Year\\Research Project\\Dependency Extractor\\2019.112.16\\CK NEW\\ck-master";
@@ -36,7 +31,7 @@ public class Runner {
 	
 		new CK().calculate(path, useJars, result -> {
 			try {
-			    writer.printResultNuwan(result);
+			    writer.printResult(result);
 			    String file = result.getFile();
 			    String className = result.getClassName();
 			    int loc = result.getLoc();

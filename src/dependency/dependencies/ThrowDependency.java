@@ -4,6 +4,7 @@ import dependency.enums.DependencyType;
 
 import dependency.util.DCLUtil;
 
+@SuppressWarnings("serial")
 public final class ThrowDependency extends Dependency {
 	private final String methodNameA;
 	

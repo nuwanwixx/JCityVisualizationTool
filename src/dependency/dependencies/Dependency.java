@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import dependency.enums.DependencyType;
 
+@SuppressWarnings("serial")
 public abstract class Dependency implements Serializable {
 	protected final String classNameA;
 	protected final String classNameB;
