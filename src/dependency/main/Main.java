@@ -2,6 +2,7 @@ package dependency.main;
 
 import java.io.File;
 
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,6 +10,10 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 import org.eclipse.core.runtime.CoreException;
+
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
+
 
 import dependency.core.Architecture;
 import dependency.exception.DCLException;
@@ -74,8 +79,22 @@ public class Main {
 		return extendlist; 
 	}
 	
-	public HashMap<String,String> getImplementedlist(Collection<String> depList){
-		HashMap<String,String> implementlist = new HashMap<String,String>();
+//	public HashMap<String,String> getImplementedlist(Collection<String> depList){
+//		HashMap<String,String> implementlist = new HashMap<String,String>();
+//		for (String string : depList) {
+//			if (string.contains(",implement,")) {
+//				String[] parts = string.split(",implement,");
+//				String part1 = parts[0]; 
+//				String part2 = parts[1];
+//				implementlist.put(part1, part2);
+//			}
+//		}
+//		
+//		return implementlist; 
+//	}
+	
+	public Multimap<String,String> getImplementedlist(Collection<String> depList){
+		Multimap<String, String> implementlist = ArrayListMultimap.create();
 		for (String string : depList) {
 			if (string.contains(",implement,")) {
 				String[] parts = string.split(",implement,");
@@ -87,6 +106,7 @@ public class Main {
 		
 		return implementlist; 
 	}
+	 
 
 
 //	public static void main(String[] args) throws CoreException, IOException, DCLException, InterruptedException {

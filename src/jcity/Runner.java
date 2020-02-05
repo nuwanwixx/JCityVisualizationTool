@@ -7,10 +7,13 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.eclipse.core.runtime.CoreException;
+
+import com.google.common.collect.Multimap;
 
 import dependency.exception.DCLException;
 import dependency.main.Main;
@@ -39,6 +42,7 @@ public class Runner {
 			    int loc = result.getLoc();
 			    int methods = result.getNumberOfMethods();
 			    int variables = result.getVariablesQty();
+			 
 			    
 			    JCity ckList = new JCity(file, className, methods, loc, variables);
 			    newList.put(file, ckList);
@@ -56,7 +60,7 @@ public class Runner {
 		Collection<String> depLsit =  main.mainRunner(path);
 		
 		HashMap<String, String> extendList = main.getExtendedlist(depLsit);
-		HashMap<String, String> implementList = main.getImplementedlist(depLsit);
+		Multimap<String, String> implementList = main.getImplementedlist(depLsit);
 		
 		for (HashMap.Entry<String, String> item : extendList.entrySet()) {
 			String className =  item.getKey();
@@ -75,24 +79,21 @@ public class Runner {
 			}
 		}
 		
-		for (HashMap.Entry<String, String> item : implementList.entrySet()) {
-			String className =  item.getKey();
-			String interfaceName = item.getValue();
-			
-			
-			for (HashMap.Entry<String, JCity> jcity : newList.entrySet()) {
-				JCity classBuilding = jcity.getValue();
+		
+		for (HashMap.Entry<String, JCity> jcity : newList.entrySet()) {
+			JCity classBuilding = jcity.getValue();
+			ArrayList<String> interfaceList = new ArrayList<String>();
+			for (Map.Entry<String, String> item : implementList.entries()) {
+				String className = item.getKey();
+				String interfaceName = item.getValue();
 				
 				if (classBuilding.getClassName().equalsIgnoreCase(className)) {
-					classBuilding.setInterfaceList(interfaceName);
-					
+					interfaceList.add(interfaceName);	
 				}	
-				
-				
+					
 			}
+			classBuilding.setInterfaceList(interfaceList);
 		}
-		
-		
 		
 		for (String string : depLsit) {
 			System.out.println(string);
@@ -104,8 +105,8 @@ public class Runner {
 			System.out.println(classBuilding.toString());
 				
 		}	
-			
-	
+		
+		
 		
 		writer.flushAndClose();
 	}

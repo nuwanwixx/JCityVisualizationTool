@@ -9,8 +9,9 @@ public class JCity {
     private int linesOfCodes;
     private int numberOfAttributes;
     private String superClass;
-    private ArrayList<String> interfaceList = new ArrayList<String>();
+    private ArrayList<String> interfaceList;
     
+
 	public JCity(String filePath, String className, int numberOfMethods, int linesOfCodes, int numberOfAttributes) {
 		super();
 		this.filePath = filePath;
@@ -20,7 +21,7 @@ public class JCity {
 		this.numberOfAttributes = numberOfAttributes;
 	}
 
-	
+
 
 	public ArrayList<String> getInterfaceList() {
 		return interfaceList;
@@ -28,8 +29,8 @@ public class JCity {
 
 
 
-	public void setInterfaceList(String interfaceName) {
-		this.interfaceList.add(interfaceName);
+	public void setInterfaceList(ArrayList<String> interfaceList) {
+		this.interfaceList = interfaceList;
 	}
 
 
