@@ -21,7 +21,7 @@ public class Runner {
 	public static void main(String[] args) throws IOException, CoreException, DCLException, InterruptedException {
 
 
-		String path = "D:\\Academic\\IT mora\\Eclipse Progams\\DepExtTestAA";
+		String path = "D:\\Academic\\IT mora\\Course Modules\\4th Year\\Research Project\\Dependency Extractor\\2019.112.16\\CK NEW\\ck-master";
 		boolean useJars = false;
 		if(args.length == 2)
 			useJars = Boolean.parseBoolean(args[1]);
@@ -51,23 +51,61 @@ public class Runner {
 			}
 		});
 		
-		System.out.println(newList);
+		Main main = new Main();
 		
-		Main main = new Main(path);
-		Collection<String> depLsit =  main.mainRunner();
+		Collection<String> depLsit =  main.mainRunner(path);
+		
+		HashMap<String, String> extendList = main.getExtendedlist(depLsit);
+		HashMap<String, String> implementList = main.getImplementedlist(depLsit);
+		
+		for (HashMap.Entry<String, String> item : extendList.entrySet()) {
+			String className =  item.getKey();
+			String superClass = item.getValue();
+			
+			
+			for (HashMap.Entry<String, JCity> jcity : newList.entrySet()) {
+				JCity classBuilding = jcity.getValue();
+				
+				if (classBuilding.getClassName().equalsIgnoreCase(className)) {
+					classBuilding.setSuperClass(superClass);
+					
+				}	
+				
+				
+			}
+		}
+		
+		for (HashMap.Entry<String, String> item : implementList.entrySet()) {
+			String className =  item.getKey();
+			String interfaceName = item.getValue();
+			
+			
+			for (HashMap.Entry<String, JCity> jcity : newList.entrySet()) {
+				JCity classBuilding = jcity.getValue();
+				
+				if (classBuilding.getClassName().equalsIgnoreCase(className)) {
+					classBuilding.setInterfaceList(interfaceName);
+					
+				}	
+				
+				
+			}
+		}
+		
+		
 		
 		for (String string : depLsit) {
 			System.out.println(string);
 		}
 	
-		ArrayList myList= new ArrayList();
-		Integer aa = new Integer(67);
-		String ss = new String("Kisss");
-		myList.add(aa);
-		myList.add(ss);
-		
-		System.out.println(myList.get(0));
-		System.out.println(myList.get(1));
+		for (HashMap.Entry<String, JCity> jcity : newList.entrySet()) {
+			JCity classBuilding = jcity.getValue();
+			
+			System.out.println(classBuilding.toString());
+				
+		}	
+			
+	
 		
 		writer.flushAndClose();
 	}

@@ -62,7 +62,7 @@ public class DCLDeepDependencyVisitor extends ASTVisitor {
 			this.cUnit.accept(this);
 
 		} catch (Exception e) {
-			throw new DCLException(e, this.cUnit);
+//			throw new DCLException(e, this.cUnit);
 		}
 	}
 

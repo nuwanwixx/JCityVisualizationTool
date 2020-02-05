@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
 
 import org.eclipse.core.runtime.CoreException;
@@ -15,21 +16,9 @@ import dependency.util.TxtFileWriter;
 
 public class Main {
 	
-	String path;
+	public Collection<String> mainRunner(String line)throws CoreException, IOException, DCLException, InterruptedException {
+		String root = line;
 	
-
-	public Main(String path) {
-		super();
-		this.path = path;
-	}
-	
-
-	public Collection<String> mainRunner()throws CoreException, IOException, DCLException, InterruptedException {
-		String root = "D:\\Academic\\IT mora\\Eclipse Progams\\DepExtTestAA";
-		
-		if(!path.equals(null)){
-			root.equals(path);
-		}
 		
 		File filePath = new File("").getAbsoluteFile();
 		String path = filePath.getAbsolutePath();
@@ -59,7 +48,44 @@ public class Main {
 			listDep = architecture.getDependencies();
 			
 		}
-		return listDep;
+		
+		Collection<String> depList =  new ArrayList<String>();
+		for (String string : listDep) {
+			if(string.contains(",extend,") || string.contains(",implement,")) {
+				depList.add(string);
+			}
+		}
+		
+		
+		return depList;
+	}
+	
+	public HashMap<String,String> getExtendedlist(Collection<String> depList){
+		HashMap<String,String> extendlist = new HashMap<String,String>();
+		for (String string : depList) {
+			if (string.contains(",extend,")) {
+				String[] parts = string.split(",extend,");
+				String part1 = parts[0]; 
+				String part2 = parts[1];
+				extendlist.put(part1, part2);
+			}
+		}
+		
+		return extendlist; 
+	}
+	
+	public HashMap<String,String> getImplementedlist(Collection<String> depList){
+		HashMap<String,String> implementlist = new HashMap<String,String>();
+		for (String string : depList) {
+			if (string.contains(",implement,")) {
+				String[] parts = string.split(",implement,");
+				String part1 = parts[0]; 
+				String part2 = parts[1];
+				implementlist.put(part1, part2);
+			}
+		}
+		
+		return implementlist; 
 	}
 
 

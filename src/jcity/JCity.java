@@ -1,11 +1,15 @@
 package jcity;
 
+import java.util.ArrayList;
+
 public class JCity {
 	private String filePath;
     private String className;
     private int numberOfMethods;
     private int linesOfCodes;
     private int numberOfAttributes;
+    private String superClass;
+    private ArrayList<String> interfaceList = new ArrayList<String>();
     
 	public JCity(String filePath, String className, int numberOfMethods, int linesOfCodes, int numberOfAttributes) {
 		super();
@@ -14,6 +18,28 @@ public class JCity {
 		this.numberOfMethods = numberOfMethods;
 		this.linesOfCodes = linesOfCodes;
 		this.numberOfAttributes = numberOfAttributes;
+	}
+
+	
+
+	public ArrayList<String> getInterfaceList() {
+		return interfaceList;
+	}
+
+
+
+	public void setInterfaceList(String interfaceName) {
+		this.interfaceList.add(interfaceName);
+	}
+
+
+
+	public String getSuperClass() {
+		return superClass;
+	}
+
+	public void setSuperClass(String superClass) {
+		this.superClass = superClass;
 	}
 
 	public String getFilePath() {
@@ -59,7 +85,7 @@ public class JCity {
 	@Override
     public String toString() {
         return "CKList [filePath=" + filePath + ", className=" + className + ", methods=" + numberOfMethods + ", linesOfCodes=" + linesOfCodes + ", attributes=" + numberOfAttributes
-                + "]";
+                + ", superClass=" + superClass + ", intefaceList=" + interfaceList + "]";
     }
     
 }
