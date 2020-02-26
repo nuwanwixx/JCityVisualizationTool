@@ -10,6 +10,7 @@ import org.eclipse.core.runtime.CoreException;
 
 import com.google.common.collect.Multimap;
 
+import Designite.Designite;
 import dependency.exception.DCLException;
 import dependency.main.Main;
 import jcity.util.ResultWriter;
@@ -19,19 +20,13 @@ public class Runner {
 	public static void main(String[] args) throws IOException, CoreException, DCLException, InterruptedException { 
 
 
-		String path = "D:\\Academic\\IT mora\\Course Modules\\4th Year\\Research Project\\Dependency Extractor\\2019.112.16\\CK NEW\\ck-master";
+		String path = "D:\\Academic\\IT mora\\Course Modules\\4th Year\\Research Project\\Dependency Extractor\\Theekshana\\code_city-master\\code_city";
 		boolean useJars = false;
-		if(args.length == 2)
-			useJars = Boolean.parseBoolean(args[1]);
 		
-		ResultWriter writer = new ResultWriter("class.csv");
-		
-	
 		HashMap<String, JCity> newList = new HashMap<String, JCity>();
 	
 		new CK().calculate(path, useJars, result -> {
-			try {
-			    writer.printResult(result);
+		
 			    String file = result.getFile();
 			    String className = result.getClassName();
 			    int loc = result.getLoc();
@@ -43,11 +38,7 @@ public class Runner {
 			    newList.put(file, ckList);
 			    System.out.println(ckList.toString());
  
-			    
 			   
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
 		});
 		
 		Main main = new Main();
@@ -56,6 +47,8 @@ public class Runner {
 		
 		HashMap<String, String> extendList = main.getExtendedlist(depLsit);
 		Multimap<String, String> implementList = main.getImplementedlist(depLsit);
+		
+		System.out.println(depLsit);
 		
 		for (HashMap.Entry<String, String> item : extendList.entrySet()) {
 			String className =  item.getKey();
@@ -99,10 +92,11 @@ public class Runner {
 			
 			System.out.println(classBuilding.toString());
 				
-		}	
+		}			
 		
 		
-		
-		writer.flushAndClose();
+		Designite designite = new Designite();
+		Map<String, HashMap<String, ArrayList<String>>> bugList =  designite.designiteRun(path);
+		System.out.println(bugList);
 	}
 }
