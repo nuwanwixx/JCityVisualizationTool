@@ -1,5 +1,7 @@
 package jcity;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -48,7 +50,9 @@ public class Runner {
 		HashMap<String, String> extendList = main.getExtendedlist(depLsit);
 		Multimap<String, String> implementList = main.getImplementedlist(depLsit);
 		
-		System.out.println(depLsit);
+		Designite designite = new Designite();
+		Map<String, HashMap<String, ArrayList<String>>> bugList =  designite.designiteRun(path);
+		
 		
 		for (HashMap.Entry<String, String> item : extendList.entrySet()) {
 			String className =  item.getKey();
@@ -71,6 +75,11 @@ public class Runner {
 		for (HashMap.Entry<String, JCity> jcity : newList.entrySet()) {
 			JCity classBuilding = jcity.getValue();
 			ArrayList<String> interfaceList = new ArrayList<String>();
+			
+			if(bugList.get(classBuilding.getClassName()) != null) {
+				classBuilding.setMethodBugList(bugList.get(classBuilding.getClassName()));
+			}
+			
 			for (Map.Entry<String, String> item : implementList.entries()) {
 				String className = item.getKey();
 				String interfaceName = item.getValue();
@@ -95,8 +104,10 @@ public class Runner {
 		}			
 		
 		
-		Designite designite = new Designite();
-		Map<String, HashMap<String, ArrayList<String>>> bugList =  designite.designiteRun(path);
-		System.out.println(bugList);
+		
+	
 	}
+	
 }
+
+

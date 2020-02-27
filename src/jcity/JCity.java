@@ -1,6 +1,7 @@
 package jcity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class JCity {
 	private String filePath;
@@ -10,6 +11,7 @@ public class JCity {
     private int numberOfAttributes;
     private String superClass;
     private ArrayList<String> interfaceList;
+    private HashMap<String, ArrayList<String>> methodBugList;
     
 
 	public JCity(String filePath, String className, int numberOfMethods, int linesOfCodes, int numberOfAttributes) {
@@ -19,6 +21,18 @@ public class JCity {
 		this.numberOfMethods = numberOfMethods;
 		this.linesOfCodes = linesOfCodes;
 		this.numberOfAttributes = numberOfAttributes;
+	}
+
+
+
+	public HashMap<String, ArrayList<String>> getMethodBugList() {
+		return methodBugList;
+	}
+
+
+
+	public void setMethodBugList(HashMap<String, ArrayList<String>> methodBugList) {
+		this.methodBugList = methodBugList;
 	}
 
 
@@ -86,7 +100,7 @@ public class JCity {
 	@Override
     public String toString() {
         return "CKList [filePath=" + filePath + ", className=" + className + ", methods=" + numberOfMethods + ", linesOfCodes=" + linesOfCodes + ", attributes=" + numberOfAttributes
-                + ", superClass=" + superClass + ", intefaceList=" + interfaceList + "]";
+                + ", superClass=" + superClass + ", intefaceList=" + interfaceList +", methodBugList=" + methodBugList + "]";
     }
     
 }

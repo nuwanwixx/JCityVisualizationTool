@@ -7,8 +7,6 @@ import java.util.Map;
 
 import Designite.SourceModel.*;
 
-
-
 /**
  * 
  * This is the start of the bug finder
